@@ -1,0 +1,33 @@
+export const macKeyMap = {
+  ArrowUp: "↑",
+  ArrowRight: "→",
+  ArrowDown: "↓",
+  ArrowLeft: "←",
+  Shift: "⇧",
+  Meta: "⌘",
+  Alt: "⌥",
+  Control: "^",
+  Escape: "esc",
+  Backspace: "⌫",
+  Enter: "⏎",
+  32: "space",
+  CapsLock: "caps lock",
+  Tab: "tab",
+};
+
+export const winKeyMap = {
+  ArrowUp: "↑",
+  ArrowRight: "→",
+  ArrowDown: "↓",
+  ArrowLeft: "←",
+  Shift: "Shift",
+  Meta: "Win",
+  Alt: "Alt",
+  Control: "Ctrl",
+  Escape: "Esc",
+  Backspace: "←",
+  Enter: "Enter",
+  32: "Space",
+  CapsLock: "Caps",
+  Tab: "Tab",
+};
