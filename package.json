@@ -1,7 +1,7 @@
 {
   "name": "show-key-press",
   "version": "0.0.1-alpha.1",
-  "description": "showKeyPress",
+  "description": "A lightweight key press display tool that shows user keyboard inputs on screen in real-time. Perfect keyboard mapping support for both Mac and Windows systems.",
   "main": "./es/index.js",
   "files": [
     "es"
