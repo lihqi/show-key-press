@@ -23,7 +23,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
-      - run: tar -zcvf release.tgz ./lib/
+      - run: tar -zcvf release.tgz ./es/
 
       - name: Release
         uses: softprops/action-gh-release@v2
