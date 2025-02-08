@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "./dist",
+    "outDir": "./es",
     "sourceMap": false,
     "target": "esnext",
     "module": "esnext",
@@ -16,7 +16,6 @@
     "jsx": "react",
     "declaration": true,
     "declarationMap": false,
-    "declarationDir": "./dist/types",
     "skipLibCheck": true,
     "lib": ["esnext", "dom"],
     "types": ["node"],

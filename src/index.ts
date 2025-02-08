@@ -146,7 +146,6 @@ class ShowKeyPress {
       if (!this.container) {
         this.container = document.createElement("div");
         this.container.setAttribute("data-keys", "");
-        console.log(this.options.el)
         const parent = this.options.el || document.body;
         parent.appendChild(this.container);
       }
