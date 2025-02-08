@@ -12,6 +12,15 @@
     "build": "rm -fr dist && cross-env NODE_ENV=production rollup -c rollup.config.js "
   },
   "author": "lihqi",
+  "homepage": "https://github.com/lihqi/show-key-press/tree/main",
+  "bugs": {
+    "url": "https://github.com/lihqi/show-key-press/issues",
+    "email": "lihqi@protonmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lihqi/show-key-press.git"
+  },
   "keywords": [
     "showKeyPress",
     "show_key_press",
