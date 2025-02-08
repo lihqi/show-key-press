@@ -24,7 +24,11 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
       - run: tar -zcvf release.tgz ./es/
-
+      - name: Create Tag
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          git tag v$VERSION
+          git push origin v$VERSION
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
