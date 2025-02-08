@@ -19,21 +19,26 @@ jobs:
       - run: npm install pnpm -g
       - run: pnpm install
       - run: pnpm build
+
+      - name: version
+        id: version
+        uses: ashley-taylor/read-json-property-action@v1.0
+        with:
+          path: ./package.json
+          property: version
+
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
-      - run: tar -zcvf release.tgz ./es/
-      - name: Create Tag
-        run: |
-          VERSION=$(node -p "require('./package.json').version")
-          git tag v$VERSION
-          git push origin v$VERSION
-      - name: Release
-        uses: softprops/action-gh-release@v2
+      - name: create GitHub Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+            GITHUB_TOKEN: ${{ secrets.GHP_TOKEN }}
         with:
-          token: ${{ secrets.GHP_TOKEN }}
-          name: ${{ github.ref }}
-          files: ./release.tgz
-          draft: false
-
+            tag_name: v${{steps.version.outputs.value}}
+            release_name: v${{steps.version.outputs.value}}
+            draft: false
+            prerelease: false
+  
