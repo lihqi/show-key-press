@@ -10,7 +10,7 @@ export const macKeyMap = {
   Escape: "esc",
   Backspace: "⌫",
   Enter: "⏎",
-  32: "space",
+  " ": "space",
   CapsLock: "caps lock",
   Tab: "tab",
 };
@@ -27,7 +27,7 @@ export const winKeyMap = {
   Escape: "Esc",
   Backspace: "←",
   Enter: "Enter",
-  32: "Space",
+  " ": "space",
   CapsLock: "Caps",
   Tab: "Tab",
 };
