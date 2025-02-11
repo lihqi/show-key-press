@@ -1,8 +1,8 @@
-import { macKeyMap, winKeyMap } from "./constant";
+import { macKeyMap, winKeyMap } from './constant';
 
 interface ShowKeyPressOptions {
   el?: HTMLElement | Element | null;
-  os?: "win" | "mac";
+  os?: 'win' | 'mac';
 }
 
 class ShowKeyPress {
@@ -13,16 +13,15 @@ class ShowKeyPress {
   private options: ShowKeyPressOptions;
 
   private get prettyMap() {
-    return this.options.os === "mac" ? macKeyMap : winKeyMap;
+    return this.options.os === 'mac' ? macKeyMap : winKeyMap;
   }
 
   constructor(options: ShowKeyPressOptions = {}) {
     this.options = {
       os:
-        typeof navigator !== "undefined" &&
-        navigator.platform.toLowerCase().includes("mac")
-          ? "mac"
-          : "win",
+        typeof navigator !== 'undefined' && navigator.platform.toLowerCase().includes('mac')
+          ? 'mac'
+          : 'win',
       ...options,
     };
   }
@@ -32,27 +31,25 @@ class ShowKeyPress {
   }
 
   start(): void {
-    window.addEventListener("keydown", this.handler);
+    window.addEventListener('keydown', this.handler);
   }
 
   destroy(): void {
-    window.removeEventListener("keydown", this.handler);
+    window.removeEventListener('keydown', this.handler);
     if (this.timeoutId) {
       window.clearTimeout(this.timeoutId);
     }
     this.container?.remove();
-    const style = document.head.querySelector("#keyscss");
+    const style = document.head.querySelector('#keyscss');
     style?.remove();
   }
 
   private handler = (event: KeyboardEvent): void => {
-    if (["INPUT", "TEXTAREA"].includes((event.target as HTMLElement).tagName)) {
+    if (['INPUT', 'TEXTAREA'].includes((event.target as HTMLElement).tagName)) {
       return;
     }
 
-    const key =
-      (this.prettyMap as Record<string, string>)[event.key] ||
-      event.key.toUpperCase();
+    const key = (this.prettyMap as Record<string, string>)[event.key] || event.key.toUpperCase();
 
     const modifiers = {
       Meta: event.metaKey,
@@ -63,9 +60,7 @@ class ShowKeyPress {
 
     const newKeys = Object.entries(modifiers)
       .filter(([_, isPressed]) => isPressed)
-      .map(
-        ([modifier]) => this.prettyMap[modifier as keyof typeof this.prettyMap]
-      );
+      .map(([modifier]) => this.prettyMap[modifier as keyof typeof this.prettyMap]);
 
     if (!Object.keys(modifiers).includes(event.key)) {
       newKeys.push(key);
@@ -96,9 +91,9 @@ class ShowKeyPress {
   }
 
   private insertCSS(): void {
-    if (!document.head.querySelector("#keyscss")) {
-      const style = document.createElement("style");
-      style.id = "keyscss";
+    if (!document.head.querySelector('#keyscss')) {
+      const style = document.createElement('style');
+      style.id = 'keyscss';
       style.textContent = `
           [data-keys] {
             display: flex;
@@ -144,14 +139,14 @@ class ShowKeyPress {
       this.container = null;
     } else {
       if (!this.container) {
-        this.container = document.createElement("div");
-        this.container.setAttribute("data-keys", "");
+        this.container = document.createElement('div');
+        this.container.setAttribute('data-keys', '');
         const parent = this.options.el || document.body;
         parent.appendChild(this.container);
       }
 
       this.container.innerHTML = `
-        ${this.keys.map((key) => `<div data-key>${key}</div>`).join("")}
+        ${this.keys.map((key) => `<div data-key>${key}</div>`).join('')}
       `;
     }
   }
