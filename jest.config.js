@@ -9,7 +9,7 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   collectCoverage: true,
   coverageDirectory: 'coverage',
-  coverageReporters: ['text', 'lcov'],
+  coverageReporters: ['text-summary', 'lcov'],
   transform: {
     '^.+\\.tsx?$': ['ts-jest', {
       tsconfig: 'tsconfig.json'
