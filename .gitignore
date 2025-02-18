@@ -3,6 +3,7 @@
 .vscode
 /dist
 /es
+/coverage
 
 # lock file
 package-lock.json
