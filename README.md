@@ -2,6 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/show-key-press.svg?style=flat)](https://npmjs.org/package/show-key-press)
 [![NPM downloads](https://img.shields.io/npm/dm/show-key-press.svg?style=flat)](https://npmjs.org/package/show-key-press)
+[![codecov](https://codecov.io/gh/lihqi/show-key-press/graph/badge.svg?token=0I2ZUXH2H3)](https://codecov.io/gh/lihqi/show-key-press)
 
 A lightweight key press display tool that shows user keyboard inputs on screen in real-time. Perfect keyboard mapping support for both Mac and Windows systems.
 
