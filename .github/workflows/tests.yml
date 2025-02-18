@@ -1,0 +1,21 @@
+# GitHub Actions 示例 (.github/workflows/tests.yml)
+name: Tests
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+
+      # 安装依赖、运行测试并生成覆盖率报告
+      - run: npm install pnpm -g
+      - run: pnpm install
+      - run: pnpm test
+
+      # 上传到 Codecov
+      - uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # 需在仓库 Settings > 
